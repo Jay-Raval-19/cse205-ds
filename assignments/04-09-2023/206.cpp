@@ -1,0 +1,16 @@
+static int fast_io = []() { std::ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr); return 0; }();
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode* current = head;
+        ListNode* prev = NULL; ListNode* next = NULL;
+        while(current!=NULL)
+        {
+            next=current->next;
+            current->next = prev;
+            prev=current;
+            current=next;
+        }
+        return prev;   
+    }
+};
